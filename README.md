@@ -1,4 +1,4 @@
-Here’s a **final `README.md`** you can paste straight into your repo and push.
+
 
 ---
 
