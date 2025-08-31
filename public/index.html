@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Me-API Playground</title>
+  <style>
+    :root { --b:#e5e7eb; --fg:#111827; --muted:#6b7280; --card:#f8fafc; }
+    * { box-sizing: border-box; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+           margin: 24px; color: var(--fg); background: #fff; }
+    h1 { margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 18px; }
+    .row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .card { background: #fff; border: 1px solid var(--b); border-radius: 12px; padding: 16px; }
+    .card h2 { margin: 0 0 10px; font-size: 18px; }
+    input, button { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--b); font-size: 14px; }
+    button { cursor: pointer; background: #fff; }
+    .stack { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    pre { background: var(--card); padding: 12px; border-radius: 10px; overflow: auto; max-height: 360px; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .ok { color: #047857; } .err { color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <h1>Me-API Playground</h1>
+  <p class="sub">Minimal UI to view your profile, list projects by skill, and search.</p>
+
+  <div class="row">
+
+    <div class="card">
+      <h2>Health</h2>
+      <div class="stack"><button id="btnHealth">GET /health</button></div>
+      <pre id="health"></pre>
+      <div class="muted" id="healthMeta"></div>
+    </div>
+
+    <div class="card">
+      <h2>Profile</h2>
+      <div class="stack"><button id="btnProfile">GET /api/profile</button></div>
+      <pre id="profile"></pre>
+      <div class="muted" id="profileMeta"></div>
+    </div>
+
+    <div class="card">
+      <h2>Projects by Skill</h2>
+      <div class="stack">
+        <input id="skill" placeholder="e.g. Stripe, node js, mongo" />
+        <button id="btnProjects">GET /api/projects?skill=…</button>
+      </div>
+      <pre id="projects"></pre>
+      <div class="muted" id="projectsMeta"></div>
+    </div>
+
+    <div class="card">
+      <h2>Top Skills</h2>
+      <div class="stack"><button id="btnTopSkills">GET /api/skills/top</button></div>
+      <pre id="skills"></pre>
+      <div class="muted" id="skillsMeta"></div>
+    </div>
+
+    <div class="card">
+      <h2>Search</h2>
+      <div class="stack">
+        <input id="q" placeholder="e.g. socket" />
+        <button id="btnSearch">GET /api/search?q=…</button>
+      </div>
+      <pre id="search"></pre>
+      <div class="muted" id="searchMeta"></div>
+    </div>
+
+  </div>
+
+  
+  <script src="/app.js" defer></script>
+</body>
+</html>
